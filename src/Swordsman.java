@@ -1,9 +1,9 @@
 import java.util.Random;
 
-public class Swordsman extends Human {
+public class Swordsman extends Soldier implements CloseButtle {
 
-    public Swordsman(String name, CloseButtle closeButtle) {
-        super(name, closeButtle);
+    public Swordsman(String name) {
+        super.name = name;
     }
 
     @Override
@@ -12,8 +12,15 @@ public class Swordsman extends Human {
     }
 
     @Override
-    boolean dead() {
-        if (this.getHealth() <= 0) System.out.println("Героически погибает");
-        return this.getHealth() > 0;
+    public int shootAttack() {
+        Random random = new Random();
+        return random.nextInt(20);
+    }
+
+    @Override
+    public boolean slope() {
+        Random random = new Random();
+        int slope = random.nextInt(100);
+        return slope > 70;
     }
 }

@@ -1,7 +1,9 @@
-public class Archer extends Elf {
+import java.util.Random;
 
-    public Archer(String name, DistantBattle distantBattle) {
-        super(name, distantBattle);
+public class Archer extends Soldier implements DistantBattle {
+
+    public Archer(String name) {
+        super.name = name;
     }
 
     @Override
@@ -11,7 +13,19 @@ public class Archer extends Elf {
 
     @Override
     boolean dead() {
-        if (this.getHealth() <= 0) System.out.println("Героически погибает");
         return this.getHealth() > 0;
+    }
+
+    @Override
+    public int meleeAttack() {
+        Random random = new Random();
+        return random.nextInt(14);
+    }
+
+    @Override
+    public boolean slope() {
+        Random random = new Random();
+        int slope = random.nextInt(100);
+        return slope > 70;
     }
 }

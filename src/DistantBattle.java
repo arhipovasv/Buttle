@@ -1,4 +1,5 @@
 public interface DistantBattle {
-    int attack();
+    int meleeAttack();
+
     boolean slope();
 }

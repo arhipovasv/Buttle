@@ -1,4 +1,5 @@
 public interface CloseButtle {
-    int attack();
+    int shootAttack();
+
     boolean slope();
 }
